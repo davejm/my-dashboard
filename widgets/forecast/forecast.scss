@@ -1,0 +1,45 @@
+// ----------------------------------------------------------------------------
+// Sass declarations
+// ----------------------------------------------------------------------------
+$background-color:  #3CAEEC;
+
+$full-color:  rgba(255, 255, 255, 1);
+$light-color: rgba(255, 255, 255, 0.7);
+
+// ----------------------------------------------------------------------------
+// Widget-forecast styles
+// ----------------------------------------------------------------------------
+
+.forecast-inner {
+  padding: 10px 5px;
+}
+
+.widget-forecast {
+
+  background-color: $background-color;
+
+
+  .updated-at {
+    color: rgba(255, 255, 255, 0.7);
+    top: 5px;
+    right: 10px;
+    left: auto;
+  }
+
+  .forecast-icon {
+    margin-right: 8px;
+  }
+
+  .current_weather_info {
+    font-size: 2em;
+    display: inline-block;
+    position: relative;
+    bottom: 20px;
+    font-weight: bold;
+  }
+
+  .summary-later {
+    font-size: 1.2em;
+  }
+
+}
