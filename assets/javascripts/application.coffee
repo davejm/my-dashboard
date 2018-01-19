@@ -9,6 +9,8 @@
 console.log("Yeah! The dashboard has started!")
 
 Dashing.on 'ready', ->
+  Dashing.debugMode = true # DEBUG
+
   Dashing.widget_margins ||= [5, 5]
   Dashing.widget_base_dimensions ||= [300, 360]
   Dashing.numColumns ||= 4
@@ -24,3 +26,10 @@ Dashing.on 'ready', ->
       draggable:
         stop: Dashing.showGridsterInstructions
         start: -> Dashing.currentWidgetPositions = Dashing.getWidgetPositions()
+
+  Batman.mixin Batman.Filters,
+    withIndex: (input) ->
+      return input unless input
+      index = -1
+      input.forEach (data) -> data.viewIndex = index += 1
+      input

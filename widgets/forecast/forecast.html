@@ -1,15 +1,23 @@
 <div class="forecast-inner">
 	<div class="updated-at" data-bind="updatedAtMessage"></div>
 
-	<div>
-		<div class="current_weather_container">
-			<canvas id="current_icon" class="forecast-icon" width="85px" height="85px"></canvas>
-			<div class="current_weather_info">
-		  	<span class="temp" data-bind="current_temp | raw"></span>
-		  	<span class="summary" data-bind="current_desc | raw"></span>
+	<div class="current_weather_container">
+		<canvas id="forecast-today-icon" class="today-forecast-icon" width="85px" height="85px"></canvas>
+		<span class="temp">
+			<span data-bind="today.temperature"></span>&deg;
+		</span>
+		<div class="summary" data-bind="today.summary"></div>
+		<div class="hourly-forecast">
+			<div class="hour-forecast-item forecast-currently">
+				<div class="hour-forecast-label">Now</div>
+				<canvas class="hour-forecast-icon" width="30px" height="30px" id="forecast-now-icon"></canvas>
+				<div class="hour-forecast-temp" data-bind="current.temperature"></div>
+			</div>
+			<div data-foreach-hour="nextHours | withIndex" class="hour-forecast-item">
+				<div class="hour-forecast-label" data-bind="hour.hour"></div>
+				<canvas class="hour-forecast-icon" width="30px" height="30px" data-bind-id="'forecast-hour%{index}-icon' | interpolate {'index': 'hour.viewIndex'}"></canvas>
+				<div class="hour-forecast-temp" data-bind="hour.temperature"></div>
 			</div>
 		</div>
 	</div>
-
-	<div class="summary-later" data-bind="later_desc | raw"></div>
 </div>

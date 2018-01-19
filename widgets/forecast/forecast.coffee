@@ -1,13 +1,4 @@
 class Dashing.Forecast extends Dashing.Widget
-
-  # Overrides Dashing.Widget method in dashing.coffee
-  @accessor 'updatedAtMessage', ->
-    if updatedAt = @get('updatedAt')
-      timestamp = new Date(updatedAt * 1000)
-      hours = timestamp.getHours()
-      minutes = ("0" + timestamp.getMinutes()).slice(-2)
-      "Updated at #{hours}:#{minutes}"
-
   constructor: ->
     super
     @forecast_icons = new Skycons({"color": "white"})
@@ -15,7 +6,13 @@ class Dashing.Forecast extends Dashing.Widget
 
   ready: ->
     # This is fired when the widget is done being rendered
-    @setIcons()
+
+    # Note that there could be a race condition with this and when the hourly
+    # icon canvas elements get their id attributes from the data-bind-id.
+    # So we wait a bit
+    setTimeout ( =>
+      @setIcons()
+    ), 200
 
   onData: (data) ->
     # Handle incoming data
@@ -25,13 +22,14 @@ class Dashing.Forecast extends Dashing.Widget
       @setIcons()
 
   setIcons: ->
-    @setIcon('current_icon')
-    @setIcon('next_icon')
-    @setIcon('later_icon')
+    @setIcon('forecast-today-icon', 'today.icon')
+    @setIcon('forecast-now-icon', 'current.icon')
+    for i in [0..12]
+      @setIcon("forecast-hour#{i}-icon", "nextHoursObjectKeys.#{i}.icon")
 
-  setIcon: (name) ->
-    skycon = @toSkycon(name)
-    @forecast_icons.set(name, eval(skycon)) if skycon
+  setIcon: (elemId, dataName) ->
+    skycon = @toSkycon(dataName)
+    @forecast_icons.set(elemId, eval(skycon)) if skycon
 
   toSkycon: (data) ->
     if @get(data)

@@ -26,11 +26,22 @@ $light-color: rgba(255, 255, 255, 0.7);
     left: auto;
   }
 
-  .forecast-icon {
+  .today-forecast-icon {
     margin-right: 8px;
   }
 
-  .current_weather_info {
+  .hour-forecast-item {
+    display: inline-block;
+    width: 50px;
+
+    .hour-forecast-label,
+    .hour-forecast-icon
+    {
+      margin-bottom: 10px;
+    }
+  }
+
+  .temp {
     font-size: 2em;
     display: inline-block;
     position: relative;
@@ -38,8 +49,9 @@ $light-color: rgba(255, 255, 255, 0.7);
     font-weight: bold;
   }
 
-  .summary-later {
+  .summary {
     font-size: 1.2em;
+    margin-bottom: 30px;
   }
 
 }
