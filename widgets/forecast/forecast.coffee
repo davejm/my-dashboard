@@ -7,12 +7,7 @@ class Dashing.Forecast extends Dashing.Widget
   ready: ->
     # This is fired when the widget is done being rendered
 
-    # Note that there could be a race condition with this and when the hourly
-    # icon canvas elements get their id attributes from the data-bind-id.
-    # So we wait a bit
-    setTimeout ( =>
-      @setIcons()
-    ), 200
+    @setIcons()
 
   onData: (data) ->
     # Handle incoming data
