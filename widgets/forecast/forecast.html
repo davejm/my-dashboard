@@ -16,7 +16,7 @@
 			<div data-foreach-hour="nextHours | withIndex" class="hour-forecast-item">
 				<div class="hour-forecast-label" data-bind="hour.hour"></div>
 				<canvas class="hour-forecast-icon" width="30px" height="30px" data-bind-id="'forecast-hour%{index}-icon' | interpolate {'index': 'hour.viewIndex'}"></canvas>
-				<div class="hour-forecast-temp" data-bind="hour.temperature"></div>
+				<div class="hour-forecast-temp"><span data-bind="hour.temperature"></span>&deg;</div>
 			</div>
 		</div>
 	</div>
