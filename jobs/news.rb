@@ -4,7 +4,8 @@ require 'htmlentities'
 
 news_feeds = {
   "bbc-tech" => "http://feeds.bbci.co.uk/news/technology/rss.xml",
-  "bbc-top-stories-uk" => "http://feeds.bbci.co.uk/news/rss.xml?edition=uk"
+  "bbc-top-stories-uk" => "http://feeds.bbci.co.uk/news/rss.xml?edition=uk",
+  "reuters-top-uk" => "http://feeds.reuters.com/reuters/UKTopNews"
 }
 
 Decoder = HTMLEntities.new
