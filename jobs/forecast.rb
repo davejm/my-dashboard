@@ -47,6 +47,10 @@ SCHEDULER.every '5m', :first_in => 0 do |job|
     }
   end
 
+  # TODO: This is a nasty ugly horrendous hack to make the front end work.
+  # Basically Batman.js doesn't like trying to get indexed array elements but
+  # it's fine with objects. So I just make an assoc. array (JS object where keys
+  # are indicies)
   nextHoursForecastObjectKeys = {}
   nextHoursForecast.each_with_index do |hour, i|
     nextHoursForecastObjectKeys[i] = hour
