@@ -8,12 +8,12 @@ $(function() {
 </script>
 
 
-<% content_for :title do %>1080p dashboard<% end %>
+<% content_for :title do %>Morning dashboard<% end %>
 
 <div class="gridster">
   <ul>
 
-    <li data-row="1" data-col="1" data-sizex="2" data-sizey="2">
+    <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
       <div data-id="google_calendar" data-view="GoogleCalendar"></div>
     </li>
 
@@ -28,6 +28,18 @@ $(function() {
 
     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
       <div data-id="uni-week" data-view="Meter" data-title="Semester Week" data-min="1" data-max="12"></div>
+    </li>
+
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="bbc-tech" data-view="News" data-title="BBC Tech" data-interval="5"></div>
+    </li>
+
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="bbc-top-stories-uk" data-view="News" data-title="BBC Top Stories" data-interval="5"></div>
+    </li>
+
+    <li data-row="1" data-col="1" data-sizex="2" data-sizey="2">
+      <div data-id="btc_gbp_graph" data-view="Graph" data-title="BTC/GBP" style="background-color:#f3f3f3;" data-prefix="£"></div>
     </li>
   </ul>
 </div>

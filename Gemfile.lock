@@ -19,6 +19,7 @@ GEM
       tzinfo
     eventmachine (1.2.5)
     execjs (2.7.0)
+    htmlentities (4.3.4)
     http (3.0.0)
       addressable (~> 2.3)
       http-cookie (~> 1.0)
@@ -98,6 +99,7 @@ PLATFORMS
 
 DEPENDENCIES
   dotenv
+  htmlentities
   icalendar
   smashing
   twitter (>= 5.9.0)
