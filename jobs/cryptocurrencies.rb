@@ -43,10 +43,10 @@ end
 @eth_gbp_points = nil
 
 SCHEDULER.every '1h', :first_in => 0 do |job|
-  @btc_gbp_points = points(historical_prices('BTC', 'GBP', 'week'))
+  @btc_gbp_points = points(historical_prices('BTC', 'GBP', 'month'))
   send_event('btc_gbp_graph',  points: @btc_gbp_points )
 
-  @eth_gbp_points = points(historical_prices('ETH', 'GBP', 'week'))
+  @eth_gbp_points = points(historical_prices('ETH', 'GBP', 'month'))
   send_event('eth_gbp_graph',  points: @eth_gbp_points )
 end
 
