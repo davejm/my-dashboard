@@ -1,13 +1,15 @@
 class Dashing.News extends Dashing.Widget
 
   ready: ->
-    @currentIndex = 0
-    @headlineElem = $(@node).find('.headline-container')
+    @pageIndex = -1
+    @headlineContainerElem = $(@node).find('.headline-container')
+    @headlinesPerPage = $(@node).attr('data-headlines-per-page')
+    @headlinesPerPage = 1 if not @headlinesPerPage
     @nextComment()
     @startCarousel()
 
   onData: (data) ->
-    @currentIndex = 0
+    @pageIndex = -1
 
   startCarousel: ->
     interval = $(@node).attr('data-interval')
@@ -17,7 +19,13 @@ class Dashing.News extends Dashing.Widget
   nextComment: =>
     headlines = @get('headlines')
     if headlines
-      @headlineElem.fadeOut =>
-        @currentIndex = (@currentIndex + 1) % headlines.length
-        @set 'current_headline', headlines[@currentIndex]
-        @headlineElem.fadeIn()
+      @headlineContainerElem.fadeOut =>
+        @pageIndex = (@pageIndex + 1) % Math.ceil(headlines.length / @headlinesPerPage)
+        startIndex = @pageIndex * @headlinesPerPage
+        endIndex = Math.min(startIndex + (@headlinesPerPage - 1), headlines.length - 1)
+        @set 'current_headlines', headlines[startIndex..endIndex]
+        # @headlineContainerElem.fadeIn()
+        @headlineContainerElem.css("display", "flex").hide().fadeIn()
+
+        @set 'pageNumber', @pageIndex + 1
+        @set 'numPages', Math.ceil(headlines.length / @headlinesPerPage)

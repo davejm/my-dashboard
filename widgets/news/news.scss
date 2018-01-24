@@ -1,11 +1,11 @@
 // ----------------------------------------------------------------------------
 // Sass declarations
 // ----------------------------------------------------------------------------
-$background-color:  #FF9500;
+$background-color:  #9c4274;
 $value-color:       #fff;
 
-$title-color:       rgba(255, 255, 255, 0.7);;
-$moreinfo-color:    rgba(255, 255, 255, 0.8);;
+$title-color:       rgba(255, 255, 255, 0.64);
+$moreinfo-color:    rgba(255, 255, 255, 0.8);
 
 // ----------------------------------------------------------------------------
 // Widget-news styles
@@ -15,21 +15,47 @@ $moreinfo-color:    rgba(255, 255, 255, 0.8);;
   background-color: $background-color;
   vertical-align: baseline !important;
 
+  .page-indicator {
+    position: absolute;
+    top: 3px;
+    right: 7px;
+    font-size: 0.7em;
+    color: $title-color;
+  }
+
   .headline-container {
     display: none;
+    height: 94%;
+    flex-direction: column;
   }
 
-  .title {
-    font-size: 1.2em;
-  }
+  .headline {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6px 10px;
 
-  .description {
-    font-size: 0.8em;
-    color: $moreinfo-color;
+    &:last-child {
+      margin-bottom: 0;
+      border-bottom: none;
+    }
+
+    .headline-title {
+      font-size: 1.2em;
+    }
+
+    .headline-description {
+      font-size: 0.8em;
+      color: $moreinfo-color;
+    }
   }
 
   .heading{
-    color: black;
+    color: $title-color;
+    height: 6%;
+    padding-top: 7px;
   }
 
 
