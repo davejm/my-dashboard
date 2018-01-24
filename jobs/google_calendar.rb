@@ -3,8 +3,8 @@ require 'icalendar'
 ical_url = ENV['ICAL_URL']
 uri = URI ical_url
 
-# TODAY = Date.today
-TODAY = Date.new(2018,2,26) # TESTING
+TODAY = Date.today
+# TODAY = Date.new(2018,3,1) # TESTING
 
 SCHEDULER.every '30m', :first_in => 0 do |job|
   result = Net::HTTP.get uri
