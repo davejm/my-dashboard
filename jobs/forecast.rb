@@ -5,9 +5,10 @@ require 'date'
 # Forecast API Key from https://developer.forecast.io
 forecast_api_key = ENV['DARKSKY_KEY']
 
+#https://developers.google.com/maps/documentation/geocoding/intro
 # Latitude, Longitude for location (Sheffield)
-forecast_location_lat = "53.381296"
-forecast_location_long = "-1.470508"
+forecast_location_lat = "53.381129"
+forecast_location_long = "-1.470085"
 
 # Unit Format
 # "us" - U.S. Imperial

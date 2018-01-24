@@ -50,7 +50,7 @@ SCHEDULER.every '1h', :first_in => 0 do |job|
   send_event('eth_gbp_graph',  points: @eth_gbp_points )
 end
 
-SCHEDULER.every '10s', :first_in => 5 do |job|
+SCHEDULER.every '10s', :first_in => 0 do |job|
   spots = spot_prices 'GBP'
 
   if !@btc_gbp_points.nil?
