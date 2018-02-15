@@ -1,19 +1,19 @@
 class Dashing.GoogleCalendar extends Dashing.Widget
 
   onData: (data) =>
-    event = rest = null
+    first_event = rest = null
     getEvents = (first, others...) ->
-      event = first
+      first_event = first
       rest = others
 
     getEvents data.events...
 
-    start = moment(event.start)
-    end = moment(event.end)
+    start = moment(first_event.start)
+    end = moment(first_event.end)
 
-    @set('event',event)
-    @set('event_date', start.format('dddd Do MMMM'))
-    @set('event_times', start.format('HH:mm') + " - " + end.format('HH:mm'))
+    @set('first_event', first_event)
+    @set('first_event_date', start.format('dddd Do MMMM'))
+    @set('first_event_times', start.format('HH:mm') + " - " + end.format('HH:mm'))
 
     next_events = []
     for next_event in rest
